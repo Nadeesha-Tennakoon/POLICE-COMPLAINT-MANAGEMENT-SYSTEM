@@ -44,7 +44,7 @@ export default function Register() {
           </button>
         </div>
         <div className="text-center">
-          <Link href="/" className="text-link">
+          <Link href="/login" className="text-link">
             Or Login here...
           </Link>
         </div>

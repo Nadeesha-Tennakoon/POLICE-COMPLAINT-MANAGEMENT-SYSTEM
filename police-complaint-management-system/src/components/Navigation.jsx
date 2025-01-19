@@ -1,14 +1,31 @@
+import getAuthUser from "@/lib/getAuthUser";
 import NavLink from "./NavLink";
+import { logout } from "@/actions/auth";
 
-export default function Navigation() {
+export default async function Navigation() {
+  const authUser = await getAuthUser();
+  console.log(authUser);
+
   return (
     <nav>
       <NavLink label="Home" href="/" />
-      <div>
-        <NavLink label="Dashboard" href="/dashboard" />
-        <NavLink label="Admin" href="/dashboard/admin" />
-        <NavLink label="Register" href="/register" />
-      </div>
+
+      {authUser ? (
+        <div className="flex items-center">
+          {authUser.role === "user" ? (
+            <NavLink label="New Complaint" href="/complaint/add" />
+          ) : null}
+          <NavLink label="Dashboard" href={`/dashboard/${authUser.role}`} />
+          <form action={logout}>
+            <button className="nav-link">Logout</button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <NavLink label="Register" href="/register" />
+          <NavLink label="Login" href="/login" />
+        </div>
+      )}
     </nav>
   );
 }

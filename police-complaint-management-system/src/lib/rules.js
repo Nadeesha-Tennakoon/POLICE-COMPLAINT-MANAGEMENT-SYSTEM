@@ -1,4 +1,9 @@
-import { z } from "zod";
+import { string, z } from "zod";
+
+export const LoginFormSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email" }).trim(),
+  password: z.string().min(1, { message: "Password is require" }).trim(),
+});
 
 export const RegisterFormSchema = z
   .object({
@@ -24,3 +29,22 @@ export const RegisterFormSchema = z
       });
     }
   });
+
+export const CreateComplaintFormSchema = z.object({
+  name: string()
+    .min(1, { message: "Name field is required." })
+    .max(100, { message: "Name field is required." })
+    .trim(),
+
+  location: string()
+    .min(1, { message: "Location field is required." })
+    .max(100, { message: "Location field is required." })
+    .trim(),
+
+  mobileNumber: string()
+    .length(10, { message: "Mobile number must be exactly 10 digits." })
+    .regex(/[0-9]/, { message: "Mobile number must contain only digits" })
+    .trim(),
+
+  content: string().min(1, { message: "Content field is required" }).trim(),
+});
