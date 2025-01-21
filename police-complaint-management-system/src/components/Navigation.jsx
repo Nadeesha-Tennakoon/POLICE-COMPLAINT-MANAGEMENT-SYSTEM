@@ -14,6 +14,8 @@ export default async function Navigation() {
         <div className="flex items-center">
           {authUser.role === "user" ? (
             <NavLink label="New Complaint" href="/complaint/add" />
+          ) : authUser.role === "admin" ? (
+            <NavLink label="View Complaints" href="/complaint/view" />
           ) : null}
           <NavLink label="Dashboard" href={`/dashboard/${authUser.role}`} />
           <form action={logout}>

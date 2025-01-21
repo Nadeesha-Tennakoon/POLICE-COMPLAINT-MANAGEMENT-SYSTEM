@@ -35,7 +35,6 @@ export async function createComplaint(state, formData) {
       location: validatedFields.data.location,
       mobileNumber: validatedFields.data.mobileNumber,
       content: validatedFields.data.content,
-      createdAt: new Date(),
     };
     await complaintsCollection.insertOne(complaint);
   } catch (error) {
