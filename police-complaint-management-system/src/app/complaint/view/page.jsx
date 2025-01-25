@@ -11,13 +11,13 @@ export default async function view() {
   if (complaints) {
     const serializedComplaints = complaints.map((complaint) => ({
       ...complaint,
-      _id: complaint.id.toString(),
+      _id: complaint._id.toString(),
       timestamp: complaint._id.getTimestamp().toString(),
     }));
     return (
       <div className="grid grid-cols-2 gap-6">
         {serializedComplaints.map((complaint) => (
-          <div key={complaint.id}>
+          <div key={complaint._id}>
             <ComplaintCard complaint={complaint} />
           </div>
         ))}

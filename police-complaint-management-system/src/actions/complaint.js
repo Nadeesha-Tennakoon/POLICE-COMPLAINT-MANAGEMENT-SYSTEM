@@ -3,7 +3,6 @@ import { getCollection } from "@/lib/db";
 import getAuthUser from "@/lib/getAuthUser";
 import { CreateComplaintFormSchema } from "@/lib/rules";
 import { redirect } from "next/navigation";
-import { v4 as uuidv4 } from "uuid";
 
 export async function createComplaint(state, formData) {
   //Check is user is signed in
@@ -30,7 +29,6 @@ export async function createComplaint(state, formData) {
   try {
     const complaintsCollection = await getCollection("complaints");
     const complaint = {
-      id: uuidv4(),
       name: validatedFields.data.name,
       location: validatedFields.data.location,
       mobileNumber: validatedFields.data.mobileNumber,
