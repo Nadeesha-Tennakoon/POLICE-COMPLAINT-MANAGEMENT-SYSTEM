@@ -90,8 +90,6 @@ export async function login(state, formData) {
   // create a session
   await createSession(existingUser._id.toString(), existingUser.role);
 
-  console.log(existingUser.email);
-
   // Redirect
   redirect(`/dashboard/${existingUser.role}`);
 }
