@@ -1,9 +1,8 @@
 export default function Footer() {
   return (
-    <footer>
+    <footer className=" justify-center">
       <p>
-        Copyright © {new Date().getFullYear()} - All right reserved by
-        LearnWithJon
+        Copyright © {new Date().getFullYear()} - All right reserved by Police
       </p>
     </footer>
   );

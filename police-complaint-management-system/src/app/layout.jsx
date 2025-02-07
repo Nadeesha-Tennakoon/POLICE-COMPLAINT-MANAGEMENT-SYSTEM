@@ -13,6 +13,9 @@ const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>Police Complaint Management System</title>
+      </head>
       <body className={`${poppins.variable} font-sans`}>
         <header>
           <Navigation />

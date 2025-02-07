@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-100;
+    @apply bg-cyan-100;
   }
   header {
     @apply bg-slate-800 shadow-md;
